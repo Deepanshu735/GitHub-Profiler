@@ -1,11 +1,17 @@
 import Button from "@/components/common/Button";
+import {
+  SearchInput,
+  SearchInputGroup,
+  SearchLabel,
+  SearchPanel,
+} from "./SearchForm.styles";
 
 const SearchForm = ({ username, onUsernameChange, onSubmit }) => {
   return (
-    <div className="search-panel">
-      <label htmlFor="github-search">Enter GitHub Username</label>
-      <div className="search-input-group">
-        <input
+    <SearchPanel>
+      <SearchLabel htmlFor="github-search">Enter GitHub Username</SearchLabel>
+      <SearchInputGroup>
+        <SearchInput
           id="github-search"
           type="text"
           placeholder="e.g. octocat"
@@ -13,8 +19,8 @@ const SearchForm = ({ username, onUsernameChange, onSubmit }) => {
           onChange={(event) => onUsernameChange(event.target.value)}
         />
         <Button onClick={() => onSubmit(username)}>Search</Button>
-      </div>
-    </div>
+      </SearchInputGroup>
+    </SearchPanel>
   );
 };
 

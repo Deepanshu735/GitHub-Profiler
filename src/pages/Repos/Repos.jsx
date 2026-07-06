@@ -1,9 +1,21 @@
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import Button from "@/components/common/Button";
 import Loader from "@/components/common/Loader";
 import ErrorMessage from "@/components/common/ErrorMessage";
+
 import useResourceList from "@/hooks/useResourceList";
 import { getRepos } from "@/api/githubService";
-import "./Repos.css";
+import {
+  ReposPage,
+  SectionHeading,
+  ReposGrid,
+  RepoCard,
+  RepoTop,
+  RepoLanguage,
+  RepoMeta,
+  RepoLink,
+  ProfileActions,
+} from "./Repos.styles";
 
 const Repos = () => {
   const { username } = useParams();
@@ -11,7 +23,12 @@ const Repos = () => {
   const { items: repos, loading, error } = useResourceList(getRepos, username);
 
   if (loading) {
-    return <Loader title="Loading repositories" message="Fetching the latest project list…" />;
+    return (
+      <Loader
+        title="Loading repositories"
+        message="Fetching the latest project list…"
+      />
+    );
   }
 
   if (error) {
@@ -26,41 +43,40 @@ const Repos = () => {
   }
 
   return (
-    <div className="page-card repos-page">
-      <div className="section-heading">
+    <ReposPage className="page-card">
+      <SectionHeading>
         <p className="eyebrow">Repositories</p>
         <h1>{username}'s projects</h1>
         <p>Browse public repositories and open them directly on GitHub.</p>
-      </div>
+      </SectionHeading>
 
-      <div className="repos-grid">
+      <ReposGrid>
         {repos.map((repo) => (
-          <div key={repo.id} className="repo-card">
-            <div className="repo-top">
+          <RepoCard key={repo.id}>
+            <RepoTop>
               <h3>{repo.name}</h3>
-              {repo.language ? <span className="repo-language">{repo.language}</span> : null}
-            </div>
+              {repo.language ? (
+                <RepoLanguage>{repo.language}</RepoLanguage>
+              ) : null}
+            </RepoTop>
             <p>{repo.description || "No description provided."}</p>
-            <div className="repo-meta">
+            <RepoMeta>
               <span>★ {repo.stargazers_count}</span>
               <span>⤴ {repo.forks_count}</span>
-            </div>
-            <a className="repo-link" href={repo.html_url} target="_blank" rel="noreferrer">
+            </RepoMeta>
+            <RepoLink href={repo.html_url} target="_blank" rel="noreferrer">
               Open Repository
-            </a>
-          </div>
+            </RepoLink>
+          </RepoCard>
         ))}
-      </div>
+      </ReposGrid>
 
-      <div className="profile-actions">
-        <button className="action-btn secondary" onClick={() => navigate(-1)}>
+      <ProfileActions>
+        <Button variant="secondary" onClick={() => navigate(-1)}>
           ← Back
-        </button>
-        <Link to={`/user/${username}`} className="back-link">
-          Back to profile
-        </Link>
-      </div>
-    </div>
+        </Button>
+      </ProfileActions>
+    </ReposPage>
   );
 };
 

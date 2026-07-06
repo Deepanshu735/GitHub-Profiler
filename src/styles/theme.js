@@ -1,0 +1,57 @@
+export const theme = {
+  colors: {
+    background: "#030712",
+    surface: "#111827",
+    surfaceAlt: "#0f172a",
+    panel: "rgba(15, 23, 42, 0.82)",
+    panelStrong: "rgba(17, 24, 39, 0.8)",
+    panelMuted: "rgba(2, 8, 23, 0.65)",
+    text: "#f8fafc",
+    textMuted: "rgba(248, 250, 252, 0.76)",
+    accent: "#38bdf8",
+    accentSecondary: "#818cf8",
+    accentSoft: "rgba(56, 189, 248, 0.2)",
+    border: "rgba(255, 255, 255, 0.12)",
+    borderSoft: "rgba(255, 255, 255, 0.1)",
+    danger: "rgba(248, 113, 113, 0.28)",
+    white: "#ffffff",
+  },
+  typography: {
+    fontFamily: 'Inter, "Segoe UI", Roboto, sans-serif',
+    fontWeightRegular: 400,
+    fontWeightBold: 700,
+    fontWeightExtraBold: 800,
+  },
+  spacing: {
+    xs: "0.5rem",
+    sm: "0.75rem",
+    md: "1rem",
+    lg: "1.25rem",
+    xl: "1.5rem",
+    xxl: "2rem",
+    xxxl: "2.5rem",
+  },
+  borderRadius: {
+    sm: "0.75rem",
+    md: "1rem",
+    lg: "1.25rem",
+    xl: "1.5rem",
+    pill: "999px",
+  },
+  shadows: {
+    soft: "0 18px 45px rgba(2, 8, 23, 0.35)",
+    card: "0 30px 70px rgba(2, 8, 23, 0.4)",
+    glow: "0 0 20px rgba(56, 189, 248, 0.5)",
+  },
+  breakpoints: {
+    mobile: "700px",
+    tablet: "780px",
+  },
+  zIndex: {
+    dropdown: 1000,
+  },
+  transitions: {
+    fast: "150ms ease-in-out",
+    base: "220ms ease-in-out",
+  },
+};

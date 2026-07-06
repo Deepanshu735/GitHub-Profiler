@@ -2,7 +2,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SearchForm from "./components/SearchForm";
 import normalizeUsername from "@/utils/normalizeUsername";
-import "./SearchPage.css";
+import {
+  Eyebrow,
+  HeroCopy,
+  HeroText,
+  HeroTitle,
+  Highlights,
+  HighlightChip,
+  SearchPageContainer,
+} from "./SearchPage.styles";
 
 const SearchPage = () => {
   const [username, setUsername] = useState("");
@@ -19,27 +27,29 @@ const SearchPage = () => {
   };
 
   return (
-    <div className="page-card search-page">
-      <div className="hero-copy">
-        <p className="eyebrow">GitHub Explorer</p>
-        <h1>Find developers, projects, and communities in seconds.</h1>
-        <p className="hero-text">
+    <SearchPageContainer>
+      <HeroCopy>
+        <Eyebrow>GitHub Explorer</Eyebrow>
+        <HeroTitle>
+          Find developers, projects, and communities in seconds.
+        </HeroTitle>
+        <HeroText>
           Search any GitHub profile and explore repositories, followers, and key
           stats in a polished dashboard.
-        </p>
-        <div className="search-highlights">
-          <span>Fast profile lookup</span>
-          <span>Clean repository view</span>
-          <span>Modern UI</span>
-        </div>
-      </div>
+        </HeroText>
+        <Highlights>
+          <HighlightChip>Fast profile lookup</HighlightChip>
+          <HighlightChip>Clean repository view</HighlightChip>
+          <HighlightChip>Modern UI</HighlightChip>
+        </Highlights>
+      </HeroCopy>
 
       <SearchForm
         username={username}
         onUsernameChange={setUsername}
         onSubmit={handleSearch}
       />
-    </div>
+    </SearchPageContainer>
   );
 };
 
