@@ -1,0 +1,72 @@
+.repos-page {
+  display: grid;
+  gap: 22px;
+}
+
+.section-heading h1 {
+  margin: 0 0 6px;
+  font-size: 1.7rem;
+}
+
+.section-heading p {
+  margin: 0;
+  color: rgba(248, 250, 252, 0.74);
+}
+
+.repos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.repo-card {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  gap: 10px;
+}
+
+.repo-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.repo-top h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.repo-language {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.14);
+  color: #bae6fd;
+  font-size: 0.8rem;
+}
+
+.repo-card p {
+  margin: 0;
+  color: rgba(248, 250, 252, 0.74);
+}
+
+.repo-meta {
+  display: flex;
+  gap: 12px;
+  color: rgba(248, 250, 252, 0.72);
+  font-size: 0.9rem;
+}
+
+.repo-link {
+  color: #7dd3fc;
+  font-weight: 600;
+}
+
+@media (max-width: 780px) {
+  .repos-grid {
+    grid-template-columns: 1fr;
+  }
+}

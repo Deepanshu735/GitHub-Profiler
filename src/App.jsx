@@ -1,21 +1,15 @@
-import { Routes, Route} from "react-router-dom";
-
-import SearchPage from "./pages/SearchPage";
-import UserDetail from "./pages/UserDetail";
-import Repos from "./pages/Repos";
-import Followers from "./pages/Followers";
-import NotFound from "./pages/NotFound";
+import Header from "./components/layout/Header";
+import AppRoutes from "./routes";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<SearchPage />} />
-      <Route path="/user/:username/followers" element={<Followers />} />
-      <Route path="/user/:username" element={<UserDetail />} />
-      <Route path="/user/:username/repos" element={<Repos />} />
-      
+    <div className="app-shell">
+      <Header />
 
-    </Routes>
+      <main className="app-main">
+        <AppRoutes />
+      </main>
+    </div>
   );
 }
 
