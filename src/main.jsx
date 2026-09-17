@@ -9,7 +9,7 @@ import GlobalStyle from "./styles/GlobalStyle";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/GitHub-Profiler">
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <App />
